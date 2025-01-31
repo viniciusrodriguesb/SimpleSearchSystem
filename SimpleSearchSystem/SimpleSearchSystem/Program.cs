@@ -1,3 +1,4 @@
+using FluentValidation.AspNetCore;
 using Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,11 +8,14 @@ builder.Logging.ClearProviders();
 builder.Logging.AddConsole();
 builder.Logging.AddDebug();
 
+//Add Validation
+builder.Services.AddValidators();
+
 //Add Services
 builder.Services.AddServices(builder.Configuration);
 
 //Add Controllers
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddFluentValidation();
 
 builder.Services.AddEndpointsApiExplorer();
 

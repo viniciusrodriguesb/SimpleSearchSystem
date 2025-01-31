@@ -29,7 +29,7 @@ namespace Infrasctructure.Data.Mappings
 
             builder.Property(u => u.DtCriacao)
                    .HasColumnName("criado")
-                   .HasDefaultValueSql("CURRENT_TIMESTAMP");
+                   .HasColumnType("timestamp");
         }
     }
 }

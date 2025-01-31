@@ -1,11 +1,8 @@
-﻿using Application.DTO.Response;
+﻿using Application.DTO.Request;
+using Application.DTO.Response;
+using Domain;
 using Infrasctructure.Data;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Services
 {
@@ -56,23 +53,75 @@ namespace Application.Services
             }
         }
 
-        public async Task ObterFormularios()
+        public async Task<List<FormulariosResponse>> ObterFormularios(int NumeroPagina, int TamanhoPagina)
         {
+            if (NumeroPagina <= 0 || TamanhoPagina <= 0)
+                throw new ArgumentException("Numero da Página ou o Tamanho da Página devem ser maior que zero.");
 
+            var query = await _context.FORMULARIO
+                                .AsNoTracking()
+                                .Where(x => x.IcAtivo)
+                                .Include(u => u.UsuarioNavigation)
+                                .Skip((NumeroPagina - 1) * TamanhoPagina)
+                                .Take(TamanhoPagina)
+                                .Select(x => new FormulariosResponse()
+                                {
+                                    Descricao = x.Descricao ?? string.Empty,
+                                    IcAtivo = x.IcAtivo,
+                                    DtCriacao = x.DtCriacao,
+                                    Autor = x.UsuarioNavigation.Email
+                                })
+                                .OrderByDescending(x => x.DtCriacao)
+                                .ToListAsync();
+
+            return query;
         }
 
-        public async Task CreateForm()
+        public async Task CriarFormulario(FormularioRequest request)
         {
+            try
+            {
+                var formulario = new FORMULARIO()
+                {
+                    IdUsuario = request.UsuarioId,
+                    Descricao = request.Descricao,
+                    DtCriacao = DateTime.UtcNow,
+                    IcAtivo = true
+                };
 
+                await _context.FORMULARIO.AddAsync(formulario);
+                await _context.SaveChangesAsync();
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
-
-
-
-
-        public async Task UpdateForm()
+        public async Task AtualizarFormulario(EditFormularioRequest request)
         {
+            try
+            {
+                var formulario = await _context.FORMULARIO
+                                               .Where(x => x.Id == request.IdFormulario)
+                                               .FirstOrDefaultAsync();
 
+                if (formulario == null)
+                    throw new ArgumentException("Usuário não encontrado");
+
+                if(request.NovaDescricao != null)
+                    formulario.Descricao = request.NovaDescricao;
+                if(request.IcAtivo.HasValue)
+                    formulario.IcAtivo = request.IcAtivo.Value;
+
+                _context.Update(formulario);
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public async Task DeleteForm()

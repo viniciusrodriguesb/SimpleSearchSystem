@@ -9,9 +9,9 @@
         public bool IcAtivo { get; set; }
 
         #region Navigation
-        public virtual USUARIO UsuarioNavigation { get; set; } = new USUARIO();
-        public virtual ICollection<PERGUNTA> PerguntasNavigation { get; set; } = new List<PERGUNTA>();
-        public virtual ICollection<RESPOSTA_FORMULARIO> RespostasFormularioNavigation { get; set; } = new List<RESPOSTA_FORMULARIO>();
+        public virtual USUARIO UsuarioNavigation { get; set; }
+        public virtual ICollection<PERGUNTA> PerguntasNavigation { get; set; }
+        public virtual ICollection<RESPOSTA_FORMULARIO> RespostasFormularioNavigation { get; set; }
         #endregion
 
     }
