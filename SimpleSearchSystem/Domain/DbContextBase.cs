@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace Domain
 {
@@ -7,7 +8,13 @@ namespace Domain
         public DbContextBase(DbContextOptions<DbContextBase> options) : base(options) { }
 
         #region Modelos       
-        //public DbSet<TB001_USUARIO> TB001_USUARIO { get; set; }
+        public DbSet<FORMULARIO> FORMULARIO { get; set; }
+        public DbSet<LOGIN> LOGIN { get; set; }
+        public DbSet<OPCAO_PERGUNTA> OPCAO_PERGUNTA { get; set; }
+        public DbSet<PERGUNTA> PERGUNTA { get; set; }
+        public DbSet<RESPOSTA_FORMULARIO> RESPOSTA_FORMULARIO { get; set; }
+        public DbSet<RESPOSTA_PERGUNTA> RESPOSTA_PERGUNTA { get; set; }
+        public DbSet<USUARIO> USUARIO { get; set; }
         #endregion
 
         #region Mapeamento
