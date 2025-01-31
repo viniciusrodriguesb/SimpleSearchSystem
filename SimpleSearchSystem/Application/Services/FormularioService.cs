@@ -8,6 +8,7 @@ namespace Application.Services
 {
     public class FormularioService
     {
+
         #region Construtor
         private readonly DbContextBase _context;
         public FormularioService(DbContextBase context)
@@ -110,9 +111,9 @@ namespace Application.Services
                 if (formulario == null)
                     throw new ArgumentException("Usuário não encontrado");
 
-                if(request.NovaDescricao != null)
+                if (request.NovaDescricao != null)
                     formulario.Descricao = request.NovaDescricao;
-                if(request.IcAtivo.HasValue)
+                if (request.IcAtivo.HasValue)
                     formulario.IcAtivo = request.IcAtivo.Value;
 
                 _context.Update(formulario);
@@ -124,16 +125,22 @@ namespace Application.Services
             }
         }
 
-        public async Task DeleteForm()
+        public async Task DeletarFormulario(int Id)
         {
 
+            if (Id <= 0)
+                throw new ArgumentException("Id solicitado não suportado, verifique e tente novamente");
+
+            try
+            {
+                await _context.FORMULARIO.Where(x => x.Id == Id)
+                                         .ExecuteDeleteAsync();
+            }
+            catch
+            {
+                throw;
+            }
         }
-
-        public async Task DisableForm()
-        {
-
-        }
-
 
     }
 }

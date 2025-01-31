@@ -7,8 +7,6 @@ namespace SimpleSearchSystem.Controllers
 {
     [ApiController]
     [Route("api/[controller]/v1")]
-    [Consumes("application/json")]
-    [Produces("application/json")]
     public class FormularioController : ControllerBase
     {
 
@@ -106,6 +104,28 @@ namespace SimpleSearchSystem.Controllers
                 await _formularioService.AtualizarFormulario(request);
 
                 _logger.LogInformation($"Finalizado serviço - {nameof(AtualizarFormulario)}");
+
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+        [HttpDelete("{Id}")]
+        [SwaggerResponse(StatusCodes.Status200OK)]
+        [SwaggerResponse(StatusCodes.Status401Unauthorized)]
+        [SwaggerResponse(StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> DeletarFormulario(int Id)
+        {
+            try
+            {
+                _logger.LogInformation($"Iniciando serviço - {nameof(DeletarFormulario)}");
+
+                await _formularioService.DeletarFormulario(Id);
+
+                _logger.LogInformation($"Finalizado serviço - {nameof(DeletarFormulario)}");
 
                 return Ok();
             }
