@@ -25,7 +25,6 @@ namespace Infrastructure
         private static void ConfigurarServicos(IServiceCollection services)
         {
             services.AddScoped<FormularioService>();
-            services.AddScoped<PaginacaoService>();
         }
     }
 }
