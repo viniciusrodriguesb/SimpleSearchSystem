@@ -1,8 +1,8 @@
-﻿using Domain.Entities;
+﻿using Domain;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
 
-namespace Domain.Mappings
+namespace Infrasctructure.Data.Mappings
 {
     public class RespostaFormularioMap : IEntityTypeConfiguration<RESPOSTA_FORMULARIO>
     {

@@ -32,13 +32,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DTO\" />
+    <Folder Include="DTO\Request\" />
     <Folder Include="Logger\" />
-    <Folder Include="Services\" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj" />
+    <ProjectReference Include="..\Infrasctructure.Data\Infrasctructure.Data.csproj" />
   </ItemGroup>
 
 </Project>

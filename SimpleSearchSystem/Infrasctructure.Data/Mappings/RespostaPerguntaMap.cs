@@ -1,8 +1,8 @@
-﻿using Domain.Entities;
+﻿using Domain;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Domain.Mappings
+namespace Infrasctructure.Data.Mappings
 {
     public class RespostaPerguntaMap : IEntityTypeConfiguration<RESPOSTA_PERGUNTA>
     {

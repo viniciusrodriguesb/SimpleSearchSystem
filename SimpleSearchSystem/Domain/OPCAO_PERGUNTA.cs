@@ -1,4 +1,4 @@
-﻿namespace Domain.Entities
+﻿namespace Domain
 {
     public class OPCAO_PERGUNTA
     {

@@ -1,8 +1,8 @@
-﻿using Domain.Entities;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
+using Domain;
 
-namespace Domain.Mappings
+namespace Infrasctructure.Data.Mappings
 {
     public class FormularioMap : IEntityTypeConfiguration<FORMULARIO>
     {

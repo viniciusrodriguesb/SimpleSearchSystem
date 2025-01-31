@@ -1,4 +1,5 @@
-﻿using Domain;
+﻿using Application.Services;
+using Infrasctructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -23,7 +24,7 @@ namespace Infrastructure
         }
         private static void ConfigurarServicos(IServiceCollection services)
         {
-
+            services.AddScoped<FormularioService>();
         }
     }
 }

@@ -1,7 +1,7 @@
-﻿using Domain.Entities;
+﻿using Domain;
 using Microsoft.EntityFrameworkCore;
 
-namespace Domain
+namespace Infrasctructure.Data
 {
     public class DbContextBase : DbContext
     {

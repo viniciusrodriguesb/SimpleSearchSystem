@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35707.178 d17.12
+VisualStudioVersion = 17.12.35707.178
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleSearchSystem", "SimpleSearchSystem\SimpleSearchSystem.csproj", "{9FD2FF73-37CF-44F2-9757-367857E54FEF}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{60707B32-C6D6-4776-A498-15866A28F869}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{244E3C2E-BED6-4E41-91F4-7B6CC7FA4CB8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrasctructure.Data", "Infrasctructure.Data\Infrasctructure.Data.csproj", "{5A89E35E-6086-4406-8519-B53DBAFA6F0F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{244E3C2E-BED6-4E41-91F4-7B6CC7FA4CB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{244E3C2E-BED6-4E41-91F4-7B6CC7FA4CB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{244E3C2E-BED6-4E41-91F4-7B6CC7FA4CB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A89E35E-6086-4406-8519-B53DBAFA6F0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A89E35E-6086-4406-8519-B53DBAFA6F0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A89E35E-6086-4406-8519-B53DBAFA6F0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A89E35E-6086-4406-8519-B53DBAFA6F0F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
