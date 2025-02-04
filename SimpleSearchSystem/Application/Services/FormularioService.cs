@@ -125,7 +125,7 @@ namespace Application.Services
             }
         }
 
-        public async Task DeletarFormulario(int Id)
+        public async Task DesabilitarFormulario(int Id)
         {
 
             if (Id <= 0)
@@ -134,7 +134,7 @@ namespace Application.Services
             try
             {
                 await _context.FORMULARIO.Where(x => x.Id == Id)
-                                         .ExecuteDeleteAsync();
+                                         .ExecuteUpdateAsync(s => s.SetProperty(des => des.IcAtivo, false));
             }
             catch
             {

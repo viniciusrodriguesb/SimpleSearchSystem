@@ -10,6 +10,9 @@ namespace Infrastructure
         public static IServiceCollection AddValidators(this IServiceCollection services)
         {
             services.AddValidatorsFromAssemblyContaining(typeof(FormularioRequestValidator));
+            services.AddValidatorsFromAssemblyContaining(typeof(EditFormularioValidator));
+            services.AddValidatorsFromAssemblyContaining(typeof(PerguntaRequestValidator));
+            services.AddValidatorsFromAssemblyContaining(typeof(EditPerguntaRequestValidator));
 
             return services;
         }

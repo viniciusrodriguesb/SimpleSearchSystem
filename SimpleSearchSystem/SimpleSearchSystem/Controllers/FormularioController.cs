@@ -37,6 +37,7 @@ namespace SimpleSearchSystem.Controllers
             }
             catch (Exception ex)
             {
+                _logger.LogError($"Erro de serviço: {ex.Message}");
                 return StatusCode(500, ex.Message);
             }
         }
@@ -59,16 +60,18 @@ namespace SimpleSearchSystem.Controllers
             }
             catch (ArgumentException ex)
             {
+                _logger.LogError($"Erro de negócio: {ex.Message}");
                 return StatusCode(400, ex.Message);
             }
             catch (Exception ex)
             {
+                _logger.LogError($"Erro de serviço: {ex.Message}");
                 return StatusCode(500, ex.Message);
             }
         }
 
         [HttpPost]
-        [SwaggerResponse(StatusCodes.Status200OK)]
+        [SwaggerResponse(StatusCodes.Status201Created)]
         [SwaggerResponse(StatusCodes.Status400BadRequest)]
         [SwaggerResponse(StatusCodes.Status401Unauthorized)]
         [SwaggerResponse(StatusCodes.Status500InternalServerError)]
@@ -82,16 +85,17 @@ namespace SimpleSearchSystem.Controllers
 
                 _logger.LogInformation($"Finalizado serviço - {nameof(CriarFormulario)}");
 
-                return Ok();
+                return StatusCode(StatusCodes.Status201Created);
             }
             catch (Exception ex)
             {
+                _logger.LogError($"Erro de serviço: {ex.Message}");
                 return StatusCode(500, ex.Message);
             }
         }
 
         [HttpPut]
-        [SwaggerResponse(StatusCodes.Status200OK)]
+        [SwaggerResponse(StatusCodes.Status204NoContent)]
         [SwaggerResponse(StatusCodes.Status400BadRequest)]
         [SwaggerResponse(StatusCodes.Status401Unauthorized)]
         [SwaggerResponse(StatusCodes.Status500InternalServerError)]
@@ -105,32 +109,34 @@ namespace SimpleSearchSystem.Controllers
 
                 _logger.LogInformation($"Finalizado serviço - {nameof(AtualizarFormulario)}");
 
-                return Ok();
+                return StatusCode(StatusCodes.Status204NoContent);
             }
             catch (Exception ex)
             {
+                _logger.LogError($"Erro de serviço: {ex.Message}");
                 return StatusCode(500, ex.Message);
             }
         }
 
-        [HttpDelete("{Id}")]
-        [SwaggerResponse(StatusCodes.Status200OK)]
+        [HttpPut("{Id}")]
+        [SwaggerResponse(StatusCodes.Status204NoContent)]
         [SwaggerResponse(StatusCodes.Status401Unauthorized)]
         [SwaggerResponse(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> DeletarFormulario(int Id)
+        public async Task<IActionResult> DesabilitarFormulario(int Id)
         {
             try
             {
-                _logger.LogInformation($"Iniciando serviço - {nameof(DeletarFormulario)}");
+                _logger.LogInformation($"Iniciando serviço - {nameof(DesabilitarFormulario)}");
 
-                await _formularioService.DeletarFormulario(Id);
+                await _formularioService.DesabilitarFormulario(Id);
 
-                _logger.LogInformation($"Finalizado serviço - {nameof(DeletarFormulario)}");
+                _logger.LogInformation($"Finalizado serviço - {nameof(DesabilitarFormulario)}");
 
-                return Ok();
+                return StatusCode(StatusCodes.Status204NoContent);
             }
             catch (Exception ex)
             {
+                _logger.LogError($"Erro de serviço: {ex.Message}");
                 return StatusCode(500, ex.Message);
             }
         }
