@@ -9,9 +9,9 @@
         public DateTime DtCriacao { get; set; }
 
         #region Navigation
-        public virtual LOGIN LoginNavigation { get; set; } = new LOGIN();
-        public virtual ICollection<FORMULARIO> FormulariosNavigation { get; set; } = new List<FORMULARIO>();
-        public virtual ICollection<RESPOSTA_FORMULARIO> RespostasFormularioNavigation { get; set; } = new List<RESPOSTA_FORMULARIO>();
+        public virtual LOGIN LoginNavigation { get; set; } 
+        public virtual ICollection<FORMULARIO> FormulariosNavigation { get; set; } 
+        public virtual ICollection<RESPOSTA_FORMULARIO> RespostasFormularioNavigation { get; set; } 
         #endregion
 
     }

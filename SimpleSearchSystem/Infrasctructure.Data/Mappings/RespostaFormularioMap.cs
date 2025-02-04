@@ -23,7 +23,7 @@ namespace Infrasctructure.Data.Mappings
 
             builder.Property(u => u.DtResposta)
                    .HasColumnName("data_resposta")
-                   .HasColumnType("timestamp");
+                   .HasColumnType("timestamp with time zone");
 
             builder.HasOne(f => f.FormularioNavigation)
                    .WithMany(f => f.RespostasFormularioNavigation)

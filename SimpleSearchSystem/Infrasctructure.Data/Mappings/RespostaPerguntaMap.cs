@@ -16,7 +16,7 @@ namespace Infrasctructure.Data.Mappings
                    .HasColumnName("id");
 
             builder.Property(e => e.RespostaFormularioId)
-                  .HasColumnName("formulario_id");
+                  .HasColumnName("resposta_formulario_id");
 
             builder.Property(e => e.PerguntaId)
                   .HasColumnName("pergunta_id");
@@ -25,19 +25,16 @@ namespace Infrasctructure.Data.Mappings
                  .HasColumnName("opcao_id");
 
             builder.HasOne(r => r.RespostaFormularioNavigation)
-                   .WithMany()
-                   .HasForeignKey(r => r.RespostaFormularioId)
-                   .OnDelete(DeleteBehavior.Cascade);
+                   .WithMany(r => r.RespostasPerguntasNavigation)
+                   .HasForeignKey(r => r.RespostaFormularioId);
 
             builder.HasOne(r => r.PerguntaNavigation)
-                   .WithMany()
-                   .HasForeignKey(r => r.PerguntaId)
-                   .OnDelete(DeleteBehavior.Cascade);
+                   .WithMany(r => r.RespostasPerguntasNavigation)
+                   .HasForeignKey(r => r.PerguntaId);
 
             builder.HasOne(r => r.OpcaoPerguntaNavigation)
-                   .WithMany()
-                   .HasForeignKey(r => r.OpcaoId)
-                   .OnDelete(DeleteBehavior.Cascade);
+                   .WithMany(r => r.RespostasPerguntasNavigation)
+                   .HasForeignKey(r => r.OpcaoId);
         }
     }
 }

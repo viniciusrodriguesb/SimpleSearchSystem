@@ -8,8 +8,9 @@
         public int Ordem { get; set; }
 
         #region Navigation
-        public virtual FORMULARIO FormularioNavigation { get; set; } = new FORMULARIO();
-        public virtual ICollection<OPCAO_PERGUNTA> OpcoesPerguntaNavigation { get; set; } = new List<OPCAO_PERGUNTA>();
+        public virtual FORMULARIO FormularioNavigation { get; set; } 
+        public virtual ICollection<OPCAO_PERGUNTA> OpcoesPerguntaNavigation { get; set; }
+        public virtual ICollection<RESPOSTA_PERGUNTA> RespostasPerguntasNavigation { get; set; }
         #endregion
 
     }

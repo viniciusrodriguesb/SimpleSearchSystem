@@ -23,15 +23,14 @@ namespace Infrasctructure.Data.Mappings
 
             builder.Property(u => u.DtCriacao)
                   .HasColumnName("criado")
-                  .HasColumnType("timestamp");
+                  .HasColumnType("timestamp with time zone");
 
             builder.Property(e => e.IcAtivo)
                  .HasColumnName("ativo");
 
             builder.HasOne(f => f.UsuarioNavigation)
               .WithMany(u => u.FormulariosNavigation)
-              .HasForeignKey(f => f.IdUsuario)
-              .OnDelete(DeleteBehavior.SetNull);
+              .HasForeignKey(f => f.IdUsuario);
         }
     }
 }

@@ -7,7 +7,7 @@
         public string Senha { get; set; } = string.Empty;
 
         #region Navigation
-        public virtual USUARIO UsuarioNavigation { get; set; } = new USUARIO();
+        public virtual USUARIO UsuarioNavigation { get; set; }
         #endregion
 
     }

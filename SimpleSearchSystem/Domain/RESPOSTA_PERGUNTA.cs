@@ -8,9 +8,9 @@
         public int OpcaoId { get; set; }
 
         #region Navigations
-        public virtual RESPOSTA_FORMULARIO RespostaFormularioNavigation { get; set; } = new RESPOSTA_FORMULARIO();
-        public virtual PERGUNTA PerguntaNavigation { get; set; } = new PERGUNTA();
-        public virtual OPCAO_PERGUNTA OpcaoPerguntaNavigation { get; set; } = new OPCAO_PERGUNTA();
+        public virtual RESPOSTA_FORMULARIO RespostaFormularioNavigation { get; set; } 
+        public virtual PERGUNTA PerguntaNavigation { get; set; }
+        public virtual OPCAO_PERGUNTA OpcaoPerguntaNavigation { get; set; } 
         #endregion
 
     }

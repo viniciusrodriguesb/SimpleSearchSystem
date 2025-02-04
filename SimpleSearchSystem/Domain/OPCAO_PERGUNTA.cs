@@ -8,7 +8,8 @@
         public int Ordem { get; set; }
 
         #region Navigation
-        public virtual PERGUNTA PerguntaNavigation { get; set; } = new PERGUNTA();
+        public virtual PERGUNTA PerguntaNavigation { get; set; }
+        public virtual ICollection<RESPOSTA_PERGUNTA> RespostasPerguntasNavigation { get; set; }
         #endregion
     }
 }
